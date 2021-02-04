@@ -1,25 +1,6 @@
 'use strict';
+
 const scrapeIt = require("scrape-it")
-
-// With background scripts you can communicate with popup
-// and contentScript files.
-// For more information on background script,
-// See https://developer.chrome.com/extensions/background_pages
-
-// chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-//   if (request.type === 'GREETINGS') {
-//     const message = `Hi ${
-//       sender.tab ? 'Con' : 'Pop'
-//     }, my name is Bac. I am from Background. It's great to hear from you.`;
-
-//     // Log message coming from the `request` parameter
-//     console.log(request.payload.message);
-//     // Send a response message
-//     sendResponse({
-//       message,
-//     });
-//   }
-// });
 
 chrome.runtime.onInstalled.addListener(function() {
   let times = 60 * 1000
@@ -28,9 +9,11 @@ chrome.runtime.onInstalled.addListener(function() {
 
   setInterval(function(){
     setBadge()
-    console.log('hello')
   }, times);
+});
 
+chrome.browserAction.onClicked.addListener(function(tab) {
+  window.open("https://transferwise.com/gb/currency-converter/usd-to-idr-rate");
 });
 
 async function setBadge() {
