@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Transferwise Rate",
   "version": "0.1.0",
-  "description": "My Chrome Extension",
+  "description": "Transferwise extension for getting current rate from USD to IDR. This is not official from transferwise !!",
   "icons": {
     "16": "icons/icon_16.png",
     "32": "icons/icon_32.png",
@@ -13,24 +13,12 @@
     "scripts": [
       "background.js"
     ],
-    "persistent": false
+    "persistent": true
   },
   "browser_action": {
-    "default_title": "Transferwise Rate",
-    "default_popup": "popup.html"
+    "default_title": "Transferwise Rate"
   },
   "permissions": [
-    "storage"
-  ],
-  "content_scripts": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "run_at": "document_idle",
-      "js": [
-        "contentScript.js"
-      ]
-    }
+    "https://transferwise.com/"
   ]
 }
