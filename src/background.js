@@ -1,15 +1,14 @@
 'use strict';
 
 const scrapeIt = require("scrape-it")
+const cron = require('node-cron');
 
 chrome.runtime.onInstalled.addListener(function() {
-  let times = 60 * 1000
-
   setBadge()
 
-  setInterval(function(){
+  cron.schedule('* * * * *', () => {
     setBadge()
-  }, times);
+  });
 });
 
 chrome.browserAction.onClicked.addListener(function(tab) {

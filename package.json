@@ -18,6 +18,7 @@
     "webpack-merge": "^5.7.3"
   },
   "dependencies": {
+    "node-cron": "^2.0.3",
     "scrape-it": "^5.3.1"
   }
 }
