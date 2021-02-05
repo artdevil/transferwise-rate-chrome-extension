@@ -64102,6 +64102,8 @@ function extend() {
 
 const scrapeIt = __webpack_require__(/*! scrape-it */ "./node_modules/scrape-it/lib/index.js")
 const cron = __webpack_require__(/*! node-cron */ "./node_modules/node-cron/src/node-cron.js");
+var currencyFrom = 'usd'
+var currencyTo = 'idr'
 
 chrome.runtime.onInstalled.addListener(function() {
   setBadge()
@@ -64111,18 +64113,30 @@ chrome.runtime.onInstalled.addListener(function() {
   });
 });
 
-chrome.browserAction.onClicked.addListener(function(tab) {
-  window.open("https://transferwise.com/gb/currency-converter/usd-to-idr-rate");
+chrome.browserAction.onClicked.addListener(function(_tab) {
+  window.open(getUrl());
 });
 
 async function setBadge() {
-  let text = await searchRate()
+  let text = await searchRate();
   chrome.browserAction.setBadgeText({text: text});
 }
 
 function searchRate () {
+  chrome.storage.local.get('currency', function(result) {
+    if (result.key) {
+      if (result.key.currency_from) {
+        currencyFrom = result.key.currency_from
+      }
+
+      if (result.key.currency_to) {
+        currencyTo = result.key.currency_to
+      }
+    }
+  });
+
   return new Promise(resolve => {
-    scrapeIt("https://transferwise.com/gb/currency-converter/usd-to-idr-rate", {
+    scrapeIt(getUrl(), {
       rate: "#calculator > form > div.row.cc-calculator__input-group.m-t-3 > div.col-lg-6.text-xs-center.text-lg-left > h3 > span.text-success"
     }).then(({ data }) => {
       resolve(Math.floor(data.rate).toString())
@@ -64131,6 +64145,10 @@ function searchRate () {
       resolve('Err')
     })
   });
+}
+
+function getUrl() {
+  return `https://transferwise.com/gb/currency-converter/${currencyFrom}-to-${currencyTo}-rate`
 }
 
 /***/ }),
