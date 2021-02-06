@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Transferwise Rate",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Transferwise extension for getting current rate from USD to IDR. This is not official from transferwise !!",
   "icons": {
     "16": "icons/icon_16.png",
