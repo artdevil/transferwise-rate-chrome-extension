@@ -5918,11 +5918,11 @@ __webpack_require__.r(__webpack_exports__);
   }
 
   function getCurrencyFrom() {
-    return document.getElementById('currency_from')
+    return document.getElementById('currency_from_tf')
   }
 
   function getCurrencyTo() {
-    return document.getElementById('currency_to')
+    return document.getElementById('currency_to_tf')
   }
 
   function setChoiceLib () {
@@ -5935,7 +5935,6 @@ __webpack_require__.r(__webpack_exports__);
     getCurrencyFrom().addEventListener(
       'choice',
       function(event) {
-        console.log(event)
         currencyFrom = event.detail.choice.value
       },
       false,
@@ -5981,10 +5980,10 @@ __webpack_require__.r(__webpack_exports__);
     return `https://transferwise.com/gb/currency-converter/${currencyFrom}-to-${currencyTo}-rate`
   }
 
-  setDropDown()
-  setValueDropDown()
-
   document.addEventListener('DOMContentLoaded', function() {
+    setDropDown()
+    setValueDropDown()
+
     document.getElementById('apply').addEventListener('click', function() {
       setStorage()
     });

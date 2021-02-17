@@ -20,7 +20,6 @@
   "dependencies": {
     "choices.js": "^9.0.1",
     "node-cron": "^2.0.3",
-    "scrape-it": "^5.3.1",
-    "select2": "^4.1.0-rc.0"
+    "scrape-it": "^5.3.1"
   }
 }

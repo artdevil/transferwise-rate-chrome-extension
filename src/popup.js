@@ -185,11 +185,11 @@ import Choices from 'choices.js';
   }
 
   function getCurrencyFrom() {
-    return document.getElementById('currency_from')
+    return document.getElementById('currency_from_tf')
   }
 
   function getCurrencyTo() {
-    return document.getElementById('currency_to')
+    return document.getElementById('currency_to_tf')
   }
 
   function setChoiceLib () {
@@ -202,7 +202,6 @@ import Choices from 'choices.js';
     getCurrencyFrom().addEventListener(
       'choice',
       function(event) {
-        console.log(event)
         currencyFrom = event.detail.choice.value
       },
       false,
@@ -248,10 +247,10 @@ import Choices from 'choices.js';
     return `https://transferwise.com/gb/currency-converter/${currencyFrom}-to-${currencyTo}-rate`
   }
 
-  setDropDown()
-  setValueDropDown()
-
   document.addEventListener('DOMContentLoaded', function() {
+    setDropDown()
+    setValueDropDown()
+
     document.getElementById('apply').addEventListener('click', function() {
       setStorage()
     });
