@@ -1,6 +1,6 @@
 # <img src="public/icons/icon_48.png" width="45" align="left"> Transferwise Rate
 
-This is unofficial extension for automatically get rate from transferwise. only support from USD to IDR, other rate coming soon !
+This is unofficial extension for automatically get rate from transferwise.
 
 ## Install
 1. Download project
