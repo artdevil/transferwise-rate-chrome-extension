@@ -42,7 +42,7 @@ function searchRate () {
     }).then(({ data }) => {
       resolve(Math.floor(data.rate).toString())
     }).catch((err) => {
-      console.error(err.message)
+      console.log(err.message)
       resolve('Err')
     })
   });
