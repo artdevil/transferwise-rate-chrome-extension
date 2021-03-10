@@ -248,15 +248,17 @@ import Choices from 'choices.js';
   }
 
   document.addEventListener('DOMContentLoaded', function() {
-    setDropDown()
-    setValueDropDown()
+    if (getCurrencyFrom() && getCurrencyTo()) {
+      setDropDown()
+      setValueDropDown()
 
-    document.getElementById('apply').addEventListener('click', function() {
-      setStorage()
-    });
+      document.getElementById('apply').addEventListener('click', function() {
+        setStorage()
+      });
 
-    document.getElementById('check-link').addEventListener('click', function() {
-      window.open(getUrl());
-    });
+      document.getElementById('check-link').addEventListener('click', function() {
+        window.open(getUrl());
+      });
+    }
   });
 })();
