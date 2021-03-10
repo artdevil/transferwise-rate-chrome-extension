@@ -59,9 +59,9 @@ function setCurrency () {
         if (result.currency.currency_to) {
           currencyTo = result.currency.currency_to
         }
-
-        resolve(true)
       }
+
+      resolve(true)
     });
   });
 }

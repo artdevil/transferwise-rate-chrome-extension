@@ -179,6 +179,12 @@ import Choices from 'choices.js';
         currencyTo = result.currency.currency_to
         getCurrencyTo().value = currencyTo
       }
+    } else {
+      currencyFrom = 'usd'
+      getCurrencyFrom().value = 'usd'
+
+      currencyTo = 'idr'
+      getCurrencyTo().value = 'idr'
     }
 
     setChoiceLib()
