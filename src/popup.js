@@ -250,7 +250,7 @@ import Choices from 'choices.js';
   }
 
   function getUrl() {
-    return `https://transferwise.com/gb/currency-converter/${currencyFrom}-to-${currencyTo}-rate`
+    return `https://wise.com/gb/currency-converter/${currencyFrom}-to-${currencyTo}-rate`
   }
 
   document.addEventListener('DOMContentLoaded', function() {
