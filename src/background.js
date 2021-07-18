@@ -38,7 +38,7 @@ async function setBadge() {
 function searchRate () {
   return new Promise(resolve => {
     scrapeIt(getUrl(), {
-      rate: "#calculator > form > div.row.cc-calculator__input-group.m-t-1 > div.col-lg-6.text-xs-center.text-lg-left > h3 > span.text-success"
+      rate: "#calculator > form > div.cc-calculator__rate.text-xs-center.text-lg-left > h3 > span.text-success"
     }).then(({ data }) => {
       resolve(Math.floor(data.rate).toString())
     }).catch((err) => {
